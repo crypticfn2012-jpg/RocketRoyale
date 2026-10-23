@@ -1,30 +1,48 @@
-# RocketRoyal
+# RocketRoyale
 
-RocketRoyal is a static Three.js car-football game built for modern desktop browsers. It uses the supplied `Car.fbx` and `rocket-ball.fbx` gameplay assets, so serve it over HTTP rather than opening the HTML file directly:
+RocketRoyale is a browser-based 3D car-football game built with Three.js. Drive a customisable car around an enclosed neon stadium, launch yourself into the air, manage boost pads, bump the opponent, and score.
+
+## Run locally
+
+Use a local HTTP server so the ES modules and supplied FBX models can load:
 
 ```powershell
-cd RocketRoyal
+cd RocketRoyale
 python -m http.server 8080
 ```
 
-Open `http://localhost:8080`. The build uses relative project paths and is compatible with GitHub Pages.
+Then open `http://localhost:8080`. The project uses relative asset paths and is designed to work on GitHub Pages.
 
-## Play
+## Modes
 
-- **Ranked Duel** — five-minute match against the arena bot. Wins and losses change your saved MMR and award credits.
-- **Casual Duel** — five-minute match with the same gameplay and credits but no MMR change.
-- **Free Play** — solo practice with no timer or bot.
-- **Item Shop** — buy and equip 30 persistent paint finishes, boost trails, and toppers. These update the actual gameplay car.
-- **Rewards** — claim one daily credit reward, and earn a playtime reward every five minutes of active play.
+- **Ranked Match** — a five-minute duel against the stadium bot. Wins and losses adjust saved MMR.
+- **Casual Match** — the same duel without ranked MMR changes.
+- **Free Play** — solo practice without a match timer or active opponent.
 
-Your rank, credits, purchases, equipped build, settings, and reward timers are saved locally. If CrazyGames Data is enabled for the published game, those values are also synced through the platform.
+Matches include kickoff countdowns, boost pads, ball physics, scoring, automatic kickoffs, a scoreboard and end-of-match rewards. Car-to-car contact now resolves overlap and transfers momentum; goals trigger team-coloured celebration particles.
 
 ## Controls
 
-`W/S` accelerate/reverse, `A` steer left, `D` steer right, `Space` jump/dodge, `Left Shift` boost, `Left Ctrl` powerslide, `R` reset, and `Esc` pause.
+| Action | Keyboard | Gamepad |
+|---|---|---|
+| Accelerate / reverse | W / S | Left stick up / down |
+| Steer | A / D | Left stick left / right |
+| Jump / second-press dodge | Space | A / bottom face button |
+| Boost | Left Shift | Right trigger or RB |
+| Powerslide | Left Ctrl | Left trigger or LB |
+| Reset car | R | — |
+| Toggle Ball Camera | C | — |
+| Pause / resume | Esc | — |
 
-Gamepad: left stick drives and steers; south/bottom face button jumps; right trigger (or south button) boosts; left trigger (or west/left face button) powerslides. Touch devices get drive, boost, drift, and jump buttons. The camera stays behind the car, while the HUD arrow points toward the ball.
+Touch controls appear on supported mobile devices. Ball Camera can also be toggled in Settings. Camera distance and height now use the full displayed slider ranges.
 
-## CrazyGames
+## Garage, shop and rewards
 
-The v3 SDK is optional for local development. The game safely initializes it before using account, data, lifecycle, or advertising APIs. On CrazyGames, the account button opens the platform sign-in prompt, match/pause lifecycle events are reported, platform data is used when available, and a midgame ad may be requested after a match. An unavailable or blocked ad never stops play.
+- Equip paint finishes, boost colours and toppers; purchases and selections are saved locally.
+- The shop uses credits earned from match results and playtime rewards.
+- Claim a daily reward. The streak advances on consecutive local calendar days and restarts after a missed day.
+- On CrazyGames, the optional SDK provides account access and cloud data where available. Outside the platform the game can still run locally without the SDK.
+
+## Technical notes
+
+Three.js is loaded from jsDelivr, and the supplied car and ball FBX assets are loaded at runtime. If an FBX model fails to load, the game uses fallback geometry. The menu and HUD are responsive, and reduced-motion preferences are respected by menu animations.
