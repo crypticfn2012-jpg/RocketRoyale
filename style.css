@@ -8,3 +8,67 @@ button{font:700 16px 'Barlow Condensed';letter-spacing:1px;color:#fff;background
 #hud{position:fixed;inset:0;pointer-events:none}.score{position:absolute;top:22px;left:50%;transform:translateX(-50%);display:flex;gap:26px;align-items:center;font:900 42px 'Barlow Condensed';text-shadow:0 2px 6px #000}.score b:first-child{color:#47b8ff}.score b:last-child{color:#ff9347}#clock{font-size:28px;background:#101a2bdd;padding:5px 15px}#notice{position:absolute;top:17%;width:100%;text-align:center;font:900 44px 'Barlow Condensed';letter-spacing:3px;text-shadow:0 3px 8px #000}#ballIndicator{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);display:grid;place-items:center;color:#eaf7ff;text-shadow:0 2px 5px #000;font:900 12px 'Barlow Condensed';letter-spacing:2px;transition:opacity .15s}#ballIndicator i{font-style:normal;font-size:32px;line-height:25px;color:#8ed8ff;filter:drop-shadow(0 0 5px #138be7)}#boost{position:absolute;right:30px;bottom:25px;text-align:right;color:#ffbd4d;font:700 14px 'Barlow Condensed';letter-spacing:2px}#boost strong{display:block;font:900 66px/.8 'Barlow Condensed'}#pauseBtn{pointer-events:auto;position:absolute;right:20px;top:20px;padding:5px 12px}#touchControls{display:none}.touchCluster{position:absolute;bottom:20px;display:grid;gap:7px;pointer-events:auto}.touchCluster button{width:64px;height:54px;padding:0;border-radius:12px;background:#102846cf;border-color:#61a9dcaa;touch-action:none;user-select:none}.touchCluster.left{left:20px;grid-template-columns:repeat(3,64px);grid-template-areas:"left throttle right" ". reverse ."}.touchCluster.left button[data-touch=left]{grid-area:left}.touchCluster.left button[data-touch=throttle]{grid-area:throttle}.touchCluster.left button[data-touch=right]{grid-area:right}.touchCluster.left button[data-touch=reverse]{grid-area:reverse}.touchCluster.right{right:20px;grid-template-columns:repeat(2,70px)}.touchCluster.right button{width:70px}.touchCluster.right button[data-touch=jump]{grid-row:span 2;height:115px;background:#ef7627c9}.touchCluster button:active{background:#2989d9}@media (pointer:coarse),(max-width:700px){#touchControls{display:block}.controls{display:none}.hero{margin:0;width:100%}#boost{right:18px;bottom:150px}.score{top:12px}.score b{font-size:34px}#ballIndicator{bottom:135px}}
 #panel{background:#020811df}#pause{background:#020811bd}.close{float:right;padding:4px 12px;font-size:24px}#panel section,#pause section{width:min(650px,92vw);max-height:85vh;overflow:auto;background:#0b1728;border:1px solid #315e91;padding:32px;box-shadow:0 20px 60px #000}h2{font:900 38px 'Barlow Condensed';letter-spacing:2px;margin:0 0 20px}.row{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}.row label{font-size:12px;color:#acc1d9;display:grid;gap:4px}.swatch{width:58px;height:40px;padding:0;border:3px solid transparent}.swatch.active{border-color:#fff}.mod{padding:12px;margin:9px 0;background:#12233b}.help{color:#a7bad0;font-size:13px;line-height:1.6}input{background:#06101d;color:#fff;border:1px solid #577;padding:8px}
 @media(max-width:700px){.hero{margin:0;width:100%;padding:30px}.menuButtons{width:min(315px,100%)}#menu{background-position:62% center}.score{gap:13px}.score b{font-size:34px}}
+/* Season-ready visual polish */
+:root{color-scheme:dark;--rr-cyan:#55caff;--rr-orange:#ff8b36;--rr-glass:rgba(7,18,34,.84)}
+body{background:#050b17}
+button{border-radius:7px;box-shadow:0 4px 14px #0003}
+button:focus-visible,input:focus-visible{outline:2px solid #71d5ff;outline-offset:3px}
+#menu{background-image:linear-gradient(90deg,rgba(2,7,17,.96) 0%,rgba(3,9,21,.82) 34%,rgba(3,9,21,.38) 64%,rgba(3,9,21,.20) 100%),linear-gradient(0deg,rgba(3,9,21,.60),transparent 35%),url("assets/ui/menu-arena.jpg");background-position:center;background-size:cover;overflow-y:auto;align-content:center;padding:24px 0}
+.hero{position:relative;width:min(550px,90vw);margin-right:42vw;padding:clamp(24px,3vw,42px);border-left:3px solid var(--rr-cyan);border-radius:0 20px 20px 0;background:linear-gradient(110deg,rgba(5,15,30,.94),rgba(5,15,30,.74) 72%,rgba(5,15,30,.08));box-shadow:22px 24px 70px #0004;backdrop-filter:blur(7px);animation:heroEnter .5s ease-out both}
+.hero h1{font:900 clamp(58px,7.6vw,104px)/.83 'Barlow Condensed';letter-spacing:-1.5px;margin:20px 0 12px}
+.hero h1 span{display:block;color:var(--rr-orange);margin-top:8px}
+.eyebrow{display:flex;align-items:center;gap:10px;color:#76d5ff;letter-spacing:3.5px}
+.eyebrow:before{content:"";display:inline-block;width:24px;height:2px;background:var(--rr-orange)}
+.tagline{margin:18px 0 22px;font-size:clamp(23px,3vw,31px);letter-spacing:4px}
+#profileBar{flex-wrap:wrap;align-items:center;gap:8px 16px;background:#07172b9c;border:1px solid #5db9f733;border-radius:8px;padding:11px 13px;box-shadow:inset 0 1px #ffffff08}
+.menuButtons{width:min(360px,100%);gap:8px;margin:24px 0 18px}
+.menuButtons button{min-height:47px;border:1px solid #4d80ac6e;background:linear-gradient(100deg,#132842f2,#0f2037d9);text-align:left;padding:12px 18px;border-radius:6px;transition:transform .16s ease,border-color .16s ease,background .16s ease,box-shadow .16s ease}
+.menuButtons button:hover{border-color:#70d0ff;background:linear-gradient(100deg,#1d4770f5,#142d4adf);transform:translateX(4px);box-shadow:0 6px 24px #168fff30}
+.menuButtons button:first-child{min-height:56px;text-align:center;background:linear-gradient(100deg,#ff963c,#ed5a19);border-color:#ffc087;color:#fff;letter-spacing:2px;box-shadow:0 7px 28px #ff781c35}
+.menuButtons button:first-child:hover{background:linear-gradient(100deg,#ffb15c,#ff6a24);transform:translateY(-2px);box-shadow:0 9px 32px #ff781c55}
+.controls{border-top:1px solid #8bcfff35;padding-top:14px;line-height:1.8;color:#d0dfef}
+.accountButton{border-radius:999px;padding:12px 20px;backdrop-filter:blur(10px);box-shadow:0 10px 40px #0004}
+#panel{background:rgba(1,6,15,.78);backdrop-filter:blur(12px);padding:18px}
+#panel section,#pause section{width:min(760px,94vw);max-height:min(86vh,900px);overflow:auto;background:linear-gradient(145deg,#0e2139,#081321 76%);border:1px solid #477db0;border-radius:14px;padding:clamp(20px,3vw,34px);box-shadow:0 28px 100px #0009,inset 0 1px #ffffff0b}
+#panelContent{margin-top:12px}
+#panel h2,#pause h2{font-size:42px;letter-spacing:2.5px}
+.shopGrid{grid-template-columns:repeat(auto-fill,minmax(min(160px,100%),1fr));gap:12px}
+.shopItem{position:relative;border-radius:9px;background:linear-gradient(145deg,#142b47,#0d1c30);padding:15px;border-color:#37577a;transition:transform .16s ease,border-color .16s ease}
+.shopItem:hover{transform:translateY(-2px);border-color:#73cfff}
+.shopItem.equipped{box-shadow:inset 0 0 0 1px #5ac7ff,0 0 18px #39aeff15}
+.shopItem h3{margin:8px 0;font-size:21px;overflow-wrap:anywhere}
+.shopItem p{font-size:12px;min-height:16px}
+.shopItem button{width:100%;margin-top:5px}
+.rewardCard{border-radius:8px;background:linear-gradient(110deg,#162d49,#0c1c31);border-left-color:var(--rr-orange)}
+#panel input[type=range]{accent-color:var(--rr-cyan);width:min(260px,65vw)}
+#panel .checkLabel{display:flex;align-items:center;gap:9px;padding:10px 12px;border:1px solid #355a7e;border-radius:8px;background:#061224;color:#e2efff}
+#panel input[type=checkbox]{accent-color:var(--rr-cyan);width:18px;height:18px}
+.score{gap:20px;padding:7px 18px;background:rgba(6,16,30,.72);border:1px solid #c7e9ff2b;border-radius:12px;backdrop-filter:blur(8px);box-shadow:0 10px 30px #0003}
+#clock{border-radius:6px;color:#ecf7ff;border:1px solid #8ccaff32}
+#notice{font-size:clamp(28px,4vw,46px);font-style:italic;text-transform:uppercase;letter-spacing:3px}
+#boost{background:linear-gradient(135deg,#071426c7,#07142655);padding:12px 15px;border:1px solid #e8a24d44;border-radius:12px;backdrop-filter:blur(6px)}
+#cameraMode{position:absolute;left:50%;bottom:86px;transform:translateX(-50%);padding:7px 12px;border:1px solid #7acfff4d;border-radius:999px;background:#06172bd9;color:#b9eaff;font:700 11px 'Barlow Condensed';letter-spacing:1.8px;white-space:nowrap;box-shadow:0 4px 16px #0004}
+#ballIndicator{z-index:1}
+#touchControls{user-select:none;-webkit-user-select:none}
+.touchCluster button{box-shadow:0 4px 20px #0006;border-radius:14px}
+@keyframes heroEnter{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+@media(max-width:900px){.hero{margin-right:25vw}}
+@media(max-width:700px){
+  #menu{background-image:linear-gradient(90deg,rgba(2,7,17,.92),rgba(3,9,21,.62)),linear-gradient(0deg,rgba(2,7,17,.55),transparent 60%),url("assets/ui/menu-arena.jpg");background-position:58% center;padding:12px 0}
+  .hero{width:100%;max-width:540px;margin:0;padding:25px 22px;border-radius:0 14px 14px 0;background:linear-gradient(100deg,rgba(5,15,30,.94),rgba(5,15,30,.66));}
+  .hero h1{font-size:clamp(56px,14vw,82px);margin:15px 0 10px}
+  .tagline{font-size:24px;margin:14px 0 18px}
+  .menuButtons{width:100%;max-width:360px;margin:18px 0 14px;gap:7px}
+  .menuButtons button{min-height:42px;padding:9px 14px}
+  .menuButtons button:first-child{min-height:48px}
+  #profileBar{font-size:13px;gap:7px 12px;padding:9px}
+  .controls{font-size:10px;margin-bottom:0}
+  .accountButton{top:10px;right:10px;font-size:11px;padding:9px 12px;max-width:46vw;overflow:hidden;text-overflow:ellipsis}
+  #panel{padding:8px}
+  #panel section,#pause section{width:100%;max-height:91vh;padding:20px 16px;border-radius:10px}
+  #cameraMode{bottom:188px;font-size:10px}
+  #boost{bottom:136px}
+  .score{gap:10px;padding:5px 10px}
+  #clock{font-size:22px;padding:5px 9px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
